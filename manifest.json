@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "Stash Selfies",
+  "description": "Selfies! For Stash! Hooray!",
+  "version": "1.8",
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "https://git.wearefriday.com/*"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "js": ["jquery.min.js", "selfie-base.js", "pull.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
+      "matches": ["*://git.wearefriday.com/*/pull-requests*"],
+      "run_at": "document_end",
+      "css": ["pull.css"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "jquery-1.10.1.min.map"
+  ]
+
+}
