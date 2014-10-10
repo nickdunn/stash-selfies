@@ -2,16 +2,16 @@
 
   var config = {
       insertBefore : [
-        'button:contains(Comment)'
+        '.tip'
       ],
       bodySelector : 'textarea[name="text"]',
       buttonHTML   : (
         '<button id="totallyAwesomeSelfieButton" type="button" class="button">' +
           '<span id="totallyAwesomeSelfieIcon" class="octicon octicon-device-camera"></span>' +
-          'Selfie!' +
+          'Take selfie!' +
         '</button>'
       ),
-      placeVideo     : function (video) { $('.comment-form-footer').prepend(video); },
+      placeVideo     : function (video) { $('.comment-form-footer').append(video); },
       preVideoStart  : function () { $('.comment-form-footer').addClass('expandSome'); },
       postVideoStart : function () {
         $('.comment-form-footer')

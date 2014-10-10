@@ -1,7 +1,5 @@
 #selfieVideo {
-  width: 224px;
-  margin-top: 1px;
-  margin-left:-94px;
+  width: 175px;
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -19,8 +17,9 @@ canvas .hidden {
   display: inline-block;
   width: auto;
   vertical-align: top;
-  margin-right: 10px;
-  margin-top: -8px;
+  position: absolute;
+  top: -5px;
+  right: 25px;
 }
 
 .selfieVideoOverlay {
@@ -42,14 +41,13 @@ canvas .hidden {
 }
 
 .selfieProgress {
-  height:2px;
-  width:0px;
+  height: 2px;
+  width: 0px;
   background-color: red;
 }
 
 .selfieProgressContainer {
-  width: 224px !important;
-  margin-left:-23px !important;
+  width: 175px !important;
 }
 
 #selfieToggleLabel {
@@ -62,7 +60,11 @@ canvas .hidden {
 }
 
 #totallyAwesomeSelfieButton {
-  margin-right: 5px;
+  position: absolute;
+  bottom: 15px;
+  right: 70px;
+  z-index: 2;
+  visibility: hidden;
 }
 
 #totallyAwesomeSelfieIcon {
@@ -85,4 +87,28 @@ canvas .hidden {
   font-size: 75px;
   text-shadow: -1px -1px 1px #999, 1px 1px 1px #222;
   color: #fff;
+}
+
+
+
+
+.tip, .tip .tip-label {
+  visibility: hidden;
+}
+
+.new-comment-form .comment-form-footer {
+  min-height:140px;
+  position: relative;
+}
+
+.new-comment-form.collapsed .comment-form-footer {
+  min-height: 0;
+}
+
+.new-comment-form.collapsed .comment-form-footer #selfieVideo {
+  display: none;
+}
+
+.new-comment-form.collapsed .comment-form-footer #totallyAwesomeSelfieButton {
+  display: none;
 }

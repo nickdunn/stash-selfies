@@ -41,7 +41,7 @@ function GitHubSelfies(config) {
     else {
       //$('.form-actions-protip').hide();
       placeButton(candidate);
-      placeToggle();
+      //placeToggle();
       placeVideo();
       setupEvents();
       config.setupComplete = true;
@@ -64,8 +64,13 @@ function GitHubSelfies(config) {
 
   function setupEvents () {
     $(config.buttonSelector).on('click', addSelfie);
-    $(config.buttonSelector).hover(startVideo);
-    $(config.toggleSelector).on('click', toggleDynamicSelfie);
+    //$(config.buttonSelector).hover(startVideo);
+    setTimeout(function() {
+      startVideo();
+      $('#totallyAwesomeSelfieButton').css('visibility', 'visible');
+    }, 1000);
+    //$(config.toggleSelector).on('click', toggleDynamicSelfie);
+    setDynamicSelfie();
     $('.write-tab').on('click', showElements);
     $('.preview-tab').on('click', hideElements);
   }
@@ -93,7 +98,8 @@ function GitHubSelfies(config) {
   }
 
   function snapSelfie (callback) {
-    dynamic = $('#selfieToggle').hasClass('selected');
+    //dynamic = $('#selfieToggle').hasClass('selected');
+    dynamic = true;
     resizeCanvasElement(dynamic);
 
     var video  = document.querySelector(config.videoSelector)
@@ -270,5 +276,12 @@ function GitHubSelfies(config) {
       $('#totallyAwesomeSelfieIcon').removeClass('octicon-device-camera');
       $('#totallyAwesomeSelfieIcon').addClass('octicon-device-camera-video');
     }
+  }
+
+  function setDynamicSelfie() {
+    $(config.toggleSelector).addClass('selected');
+    $(config.toggleSelector).addClass('primary');
+    $('#totallyAwesomeSelfieIcon').removeClass('octicon-device-camera');
+    $('#totallyAwesomeSelfieIcon').addClass('octicon-device-camera-video');
   }
 }
